@@ -1,45 +1,63 @@
 import React from "react";
 import brain from "../../assesst/Brain_.png";
-import { Box, Button, Heading, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react'
 
+import {
+  Box,
+  Button,
+  FormControl,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 export const Home = () => {
   return (
     <>
-      <Box class="hero">
-        <HStack class="container">
-          <figure class="hero-banner">
-            <Image src={brain} ml={800}/>
-          </figure>
+      <Box>
+        <HStack alignContent={"center"}>
+          <Image src={brain} ml={900} />
 
-          <VStack class="hero-content">
-            <HStack mt={-200} ml={100}><Heading mt={-170} class="h1 hero-title">Start Your <br />Future Education</Heading>
-          </HStack>
-          <HStack mt={-2} ml={100}>
-            <Text class="section-text" >
-              Education is a key to bright future. <br />
-              Education is a powerful weapon as <br />it can transform our lives by
-              enabling <br />us to live our dreams.
-            </Text></HStack>
-
-            <Button mt={5} mb={20}ml={100}class="btn btn-primary">Get Started</Button>
+          <VStack>
+            <HStack mt={50} ml={-2200}>
+              <Heading>
+                Start Your <br />
+                Future Education
+              </Heading>
+            </HStack>
+            <HStack>
+              <Text ml={-1240} mt={5}>
+                Education is a key to bright future. <br />
+                Education is a powerful weapon as <br />
+                it can transform our lives by enabling <br />
+                us to live our dreams.
+              </Text>
+            </HStack>
+            <HStack>
+              <Button ml={-1240} mt={15}>
+                Get Started
+              </Button>
+            </HStack>
           </VStack>
         </HStack>
+
       </Box>
 
       {/* <section class="departments">
         <div class="container"> */}
-          {/* <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line"/> */}
+      {/* <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line"/> */}
 
-          {/* <h2 class="h2 departments-title">Most Popular Courses</h2>
+      {/* <h2 class="h2 departments-title">Most Popular Courses</h2>
 
           <ul class="departments-list">
             <li>
               <div class="departments-card">
                 <a href="#" class="card-banner">
                   <figure> */}
-                    {/* <img src={d1} alt="Artificial Intelligence" /> */}
-                  {/* </figure>
+      {/* <img src={d1} alt="Artificial Intelligence" /> */}
+      {/* </figure>
                 </a>
 
                 <a href="#">
@@ -63,8 +81,8 @@ export const Home = () => {
               <div class="departments-card">
                 <a href="#" class="card-banner">
                   <figure> */}
-                    {/* <img src={d2} alt="Civil Engineering" /> */}
-                  {/* </figure>
+      {/* <img src={d2} alt="Civil Engineering" /> */}
+      {/* </figure>
                 </a>
 
                 <a href="#">
@@ -88,8 +106,8 @@ export const Home = () => {
               <div class="departments-card">
                 <a href="#" class="card-banner">
                   <figure> */}
-                    {/* <img src={d3} alt="Business Studies" /> */}
-                  {/* </figure>
+      {/* <img src={d3} alt="Business Studies" /> */}
+      {/* </figure>
                 </a>
 
                 <a href="#">
@@ -111,15 +129,12 @@ export const Home = () => {
           </ul>
 
           <button class="btn btn-primary">View All Courses</button> */}
-          {/* <CaptionCarousel/> */}
-        {/* </div>
+      {/* <CaptionCarousel/> */}
+      {/* </div>
       </section> */}
     </>
   );
 };
-
-
-
 
 // import {
 //   Box,
@@ -161,4 +176,3 @@ export const Home = () => {
 //     </Box>
 //   );
 // };
-

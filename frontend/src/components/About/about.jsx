@@ -21,9 +21,9 @@ export const About = () => {
             </Box>
             <p className="subTitle">WE'RE DIFFRENT THAN THE REST</p>
             <Box>
-              We provide to you a process of teaching, training and learning, to
+              Provides to you a process of teaching, training and learning, to
               improve your knowledge develop your skills, and enhance your way
-              of thinking . We makes you the smartest creature on earth. We
+              of thinking. We make you the smartest creature on earth. We
               empowers you and gets you ready to face challenges efficiently.
               Here we're simplify concepts for you to enjoy your education
               journey.
