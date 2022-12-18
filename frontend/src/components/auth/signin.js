@@ -77,7 +77,6 @@ function Signin() {
 		  <VStack align={"center"} w="100%" zIndex={1}>
 			<Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
 			<Box
-			  position={"absolute"}
 			  top="20vh"
 			  bg="gray.200"
 			  color="#0B0E3F"

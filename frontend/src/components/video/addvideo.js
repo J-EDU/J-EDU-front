@@ -3,171 +3,72 @@ import axios from "axios";
 import cookies from "react-cookies";
 
 import {
-  Flex,
-  useToast,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  HStack,
-  InputRightElement,
-  Stack,
-  Button,
-  Text,
-  Center,
+  Card,
   Link,
-  Image,
-  VStack,
-  WrapItem,
-  Wrap,
+  CardBody,
+  CardFooter,
   Heading,
+  Flex,
+  Divider,
+  Stack,
+  Text,
+  ButtonGroup,
+  Button,
+  AspectRatio,
+  VStack,
 } from "@chakra-ui/react";
 
 const initialStateData = {
   fullName: "",
   description: "",
-  category: "",
-  language: "",
   Thumbnail: "",
-  tag: [""],
+  URL:"",
 };
-function AddCourse() {
-  const toast = useToast();
+export default function ViewVideo() {
+  const [data, setState] = useState([]);
+  useEffect(() => {
+      const token = cookies.load("token");
+      const url = `${process.env.REACT_APP_SERVER}/root/video`; //http://localhost:5000/root/wishList
 
-  const [data, setData] = useState(initialStateData);
-
-  const handleChange = (e) => {
-    setData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-  async function addCourse(e) {
-    e.preventDefault();
-    const token = cookies.load("token");
-    const url = `${process.env.REACT_APP_SERVER}/root/course/addcourse`; //http://localhost:5000/root/course/addcourse
-    const course = {
+    const viewcourse = {
       fullName: data.fullName,
       description: data.description,
-      category: data.category,
-      language: data.language,
       Thumbnail: data.Thumbnail,
-      tag: [data.tag],
+      URL:data.URL,
     };
     const bearer = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const addedCourse = await axios.post(url, course, bearer).then((res) => {
-      toast({
-        title: "Signed successfully",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+    axios.get(url,bearer).then((res) => {
+      setState(res.data.videos);
     });
+  }, []);
 
-    console.log(addedCourse.data);
-  }
   return (
-    <Flex w={"100%"}>
-      <VStack align={"center"} w="100%" zIndex={1}>
-        <Box
-          position={"absolute"}
-          top="20vh"
-          bg="gray.200"
-          color="#0B0E3F"
-          borderRadius="lg"
-          m={{ sm: 4, md: 16, lg: 10 }}
-          p={{ sm: 5, md: 5, lg: 16 }}
-        >
-          <Box p={4}>
-            <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-              <WrapItem>
-                <Box>
-                  <Heading>Add Video</Heading>
-                </Box>
-              </WrapItem>
-              <WrapItem>
-                <Box bg="white" borderRadius="lg">
-                  <Box m={8} color="#0B0E3F">
-                    <VStack spacing={5}>
-                      <FormControl isRequired>
-                        <FormLabel>Full Name</FormLabel>
-                        <Input
-                          type="text"
-                          name="fullName"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
+    <Flex>{data.length >= 0 && data.map((val, idx) => (
+      <VStack w={"100%"}>
+    <Card w={"50%"} key={idx}>
+      <CardBody>
+        <Stack mt="6" spacing="3">
+          <Heading fontSize="2xl">{val.fullName}</Heading>
+          <Text color="blue.600" fontSize="2xl">{val.description}</Text>
+          <Text color="blue.600" fontSize="2xl">{val.Thumbnail}</Text>
+          <AspectRatio  ratio={.5}>
+  <iframe
+    src={val.URL}
+    allowFullScreen
+  />
+</AspectRatio>
 
-                      <FormControl isRequired>
-                        <FormLabel>Description</FormLabel>
-                        <Input
-                          type="text"
-                          name="description"
-                          id="description"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
-                      <FormControl id="language" isRequired>
-                        <FormLabel>Language</FormLabel>
-                        <Input
-                          type="text"
-                          name="language"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
-                      <FormControl id="thumbnail" isRequired>
-                        <FormLabel>Thumbnail</FormLabel>
-                        <Input
-                          type="text"
-                          name="thumbnail"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
-
-                      <FormControl id="category" isRequired>
-                        <FormLabel>Category</FormLabel>
-                        <Input
-                          type="file"
-                          name="category"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
-                      <FormControl id="tag" isRequired>
-                        <FormLabel>Tag</FormLabel>
-                        <Input
-                          type="text"
-                          name="tag"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
-                      <FormControl id="name" float="right">
-                        <Button
-                          loadingText="Submitting"
-                          size="lg"
-                          bg={"blue.400"}
-                          color={"white"}
-                          _hover={{
-                            bg: "blue.500",
-                          }}
-                          onClick={addCourse}
-                        >
-                          Sign up
-                        </Button>
-                      </FormControl>
-                    </VStack>
-                  </Box>
-                </Box>
-              </WrapItem>
-            </Wrap>
-          </Box>
-        </Box>
-      </VStack>
+        </Stack>
+      </CardBody>
+      <Divider />
+      <CardFooter></CardFooter>
+    </Card>
+    </VStack>))}
+    
     </Flex>
   );
 }
-export default AddCourse;

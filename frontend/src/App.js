@@ -17,10 +17,10 @@ function App() {
     <Flex w="100%" direction="column">
       <Navbar />
 
-      {/* <Video /> */}
-      <Viewcourse />
+      {/* <Viewcourse /> */}
+      <Video />
       {/* <Feed /> */}
-      {/* <Footer /> */}
+      <Footer />
     </Flex>
   );
 }

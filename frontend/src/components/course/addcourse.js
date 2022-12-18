@@ -54,6 +54,7 @@ function AddCourse() {
       language: data.language,
       Thumbnail: data.Thumbnail,
       tag: [data.tag],
+
     };
     const bearer = {
       headers: {
