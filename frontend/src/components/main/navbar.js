@@ -12,23 +12,28 @@ import {
 	PopoverTrigger,
 	PopoverContent,
 	useColorModeValue,
-	useBreakpointValue,
-	useDisclosure,
+	useBreakpointValue,Input,
+	useDisclosure,Image
 } from '@chakra-ui/react';
+
 import {
 	HamburgerIcon,
 	CloseIcon,
 	ChevronDownIcon,
-	ChevronRightIcon,
+	ChevronRightIcon, Search2Icon
 } from '@chakra-ui/icons';
+import logos from "../../assesst/logoo.png";
 
+const Logo = (props) => {
+  return <Image src={logos} w={"60px"} alt={"Imge Not Found"}   ml={50} />;
+};
 export default function WithSubnavigation() {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
 		<Box>
 			<Flex
-				bg={useColorModeValue('white', 'gray.800')}
+				bg={"gray.100"}
 				color={useColorModeValue('gray.600', 'white')}
 				minH={'60px'}
 				py={{ base: 2 }}
@@ -51,44 +56,53 @@ export default function WithSubnavigation() {
 					/>
 				</Flex>
 				<Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-					<Text
+					{/* <Text
 						textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
 						fontFamily={'heading'}
 						color={useColorModeValue('gray.800', 'white')}>
 						Logo
-					</Text>
-
+					</Text> */}
+                    <Box>
+                <Logo color={useColorModeValue("gray.700", "white")}/>
+              </Box>
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
 						<DesktopNav />
 					</Flex>
 				</Flex>
-
+				<Stack><Input placeholder='Search' size="s" mr={20} />
+				{/* <Search2Icon />  */}
+				</Stack>
 				<Stack
 					flex={{ base: 1, md: 0 }}
 					justify={'flex-end'}
 					direction={'row'}
 					spacing={6}>
+								
+								
 					<Button
 						as={'a'}
+						ml={10}
 						fontSize={'sm'}
 						fontWeight={400}
 						variant={'link'}
-						href={'#'}>
+						href={'/signin'}>
 						Sign In
 					</Button>
 					<Button
+					as={'a'}
 						display={{ base: 'none', md: 'inline-flex' }}
 						fontSize={'sm'}
 						fontWeight={600}
 						color={'white'}
-						bg={'blue.400'}
-						href={'#'}
+						bg={'#4299e1'}
+						href={'/signup'}
 						_hover={{
-							bg: 'pink.300',
+							bg: '#247ac0',
 						}}>
 						Sign Up
 					</Button>
 				</Stack>
+				
 			</Flex>
 
 			<Collapse in={isOpen} animateOpacity>
@@ -105,11 +119,12 @@ const DesktopNav = () => {
 
 	return (
 		<Stack direction={'row'} spacing={4}>
+			
 			{NAV_ITEMS.map((navItem) => (
 				<Box key={navItem.label}>
 					<Popover trigger={'hover'} placement={'bottom-start'}>
 						<PopoverTrigger>
-							<Link
+							<Link 
 								p={2}
 								href={navItem.href ?? '#'}
 								fontSize={'sm'}
@@ -196,6 +211,7 @@ const MobileNavItem = ({ label, children, href }) => {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
+		
 		<Stack spacing={4} onClick={children && onToggle}>
 			<Flex
 				py={2}
@@ -221,9 +237,9 @@ const MobileNavItem = ({ label, children, href }) => {
 					/>
 				)}
 			</Flex>
-
-			<Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-				<Stack
+			
+			<Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }} >
+				<Stack 
 					mt={2}
 					pl={4}
 					borderLeft={1}
@@ -236,9 +252,11 @@ const MobileNavItem = ({ label, children, href }) => {
 								{child.label}
 							</Link>
 						))}
+						
 				</Stack>
 			</Collapse>
 		</Stack>
+		
 	);
 };
 
@@ -251,25 +269,14 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
 	{
-		label: 'Home',
-		children: [
-			{
-				label: 'Home',
-				subLabel: 'Trending Design to inspire you',
-				href: '#',
-			},
-			{
-				label: 'New & Noteworthy',
-				subLabel: 'Up-and-coming Designers',
-				href: '#',
-			},
-		],
+		label: 'Home',href: '/'
+		
 	},
 	{
-		label: 'category',
+		label: 'Category',
 		children: [
 			{
-				label: 'development',
+				label: 'Development',
 				subLabel: 'Find your dream design job',
 				href: '#',
 			},
@@ -282,14 +289,15 @@ const NAV_ITEMS = [
 	},
     {
 		label: 'Feedback',
-		href: '#',
+		href: '/feed',
 	},
 	{
-		label: 'About Us',
-		href: '#',
+		label: 'About',
+		href: './about',
 	},
 	{
-		label: 'contact',
-		href: '#',
+		label: 'Contact',
+		href: '/contact',
 	},
+
 ];

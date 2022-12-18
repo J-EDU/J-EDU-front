@@ -28,7 +28,7 @@ const initialStateData = {
   text: "",
   URL: "",
 };
-export default function CaptionCarousel() {
+export function CaptionCarousel() {
   const [slider, setSlider] = React.useState(Slider | null);
   const [cardsData, setCardsData] = useState([]);
   // const [data, setData] = useState(initialStateData)

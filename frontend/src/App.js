@@ -11,17 +11,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Quiz from './components/all/quiz.js'
 import Viewcourse from './components/course/viewcourse.js'
 import Video from './components/video/addvideo.js'
+import { Home } from './components/Home/home.jsx';
+import { About } from './components/About/about.jsx';
+import { Contact } from './components/Conatct/contact.jsx';
+import ViewCourse from './components/course/viewcourse.js';
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <Flex w="100%" direction="column">
-      <Navbar />
+    <>
+    <Router>
+    <Flex w="100%" direction="column"> <Navbar />
+    <Routes>
+   
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/contact" element={<Contact />}></Route>
+          <Route exact path="/signin" element={<Signin />}></Route>
+          <Route exact path="/signup" element={<Signup />}></Route>
+          <Route exact path="/feed" element={<Feed />}></Route>
+          <Route exact path="/courses" element={<ViewCourse />}></Route>
+          </Routes>
+    
 
       {/* <Viewcourse /> */}
-      <Video />
+      {/* <Video /> */}
       {/* <Feed /> */}
       <Footer />
     </Flex>
+
+    </Router>
+    </>
   );
 }
 
