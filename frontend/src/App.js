@@ -15,6 +15,7 @@ import {Contact} from './components/contactus/contact.js'
 import AddedCourse from './components/course/addcourse.js'
 import Signin2 from "./components/auth/signin2.js";
 import Signup2 from "./components/auth/signup2.js";
+// import popularCourse from "./components/course/popularCourse.js";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
       </Router>
 
       {/* <Slide/> */}
+
     </Flex>
   );
 }

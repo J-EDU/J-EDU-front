@@ -1,9 +1,12 @@
 import React from "react";
 import brain from "../../assesst/home2.png";
 import CaptionCarousel from "./announ.js";
+// import { PopularCourse } from "../course/popularCourse";
+
 import {
   Box,
   Button,
+  Flex,
   Heading,
   HStack,
   Image,
@@ -41,7 +44,12 @@ export const Home = () => {
           </VStack>
         </HStack>
       </Box>
-      <CaptionCarousel />
+       {/* <PopularCourse/> */}
+
+
+      {/* <Flex>hello</Flex> */}
+ 
+      
     </>
   );
 };
