@@ -1,6 +1,10 @@
 import React from "react";
 import brain from "../../assesst/Brain_.png";
 import { extendTheme } from '@chakra-ui/react'
+import d1 from '../../assesst/depertment-1.png'
+import d2 from '../../assesst/depertment-2.png'
+import d3 from '../../assesst/depertment-3.png'
+import './home.css'
 
 import {
   Box,
@@ -45,19 +49,19 @@ export const Home = () => {
 
       </Box>
 
-      {/* <section class="departments">
-        <div class="container"> */}
-      {/* <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line"/> */}
+       <section class="departments">
+        <div class="container"> 
+       <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line"/> 
 
-      {/* <h2 class="h2 departments-title">Most Popular Courses</h2>
+       <h2 class="h2 departments-title">Most Popular Courses</h2>
 
           <ul class="departments-list">
             <li>
               <div class="departments-card">
                 <a href="#" class="card-banner">
-                  <figure> */}
-      {/* <img src={d1} alt="Artificial Intelligence" /> */}
-      {/* </figure>
+                  <figure> 
+       <img src={d1} alt="Artificial Intelligence" /> 
+       </figure>
                 </a>
 
                 <a href="#">
@@ -80,9 +84,9 @@ export const Home = () => {
             <li>
               <div class="departments-card">
                 <a href="#" class="card-banner">
-                  <figure> */}
-      {/* <img src={d2} alt="Civil Engineering" /> */}
-      {/* </figure>
+                  <figure> 
+       <img src={d2} alt="Civil Engineering" /> 
+       </figure>
                 </a>
 
                 <a href="#">
@@ -105,9 +109,9 @@ export const Home = () => {
             <li>
               <div class="departments-card">
                 <a href="#" class="card-banner">
-                  <figure> */}
-      {/* <img src={d3} alt="Business Studies" /> */}
-      {/* </figure>
+                  <figure> 
+       <img src={d3} alt="Business Studies" /> 
+       </figure>
                 </a>
 
                 <a href="#">
@@ -128,10 +132,9 @@ export const Home = () => {
             </li>
           </ul>
 
-          <button class="btn btn-primary">View All Courses</button> */}
-      {/* <CaptionCarousel/> */}
-      {/* </div>
-      </section> */}
+          <button class="btn btn-primary">View All Courses</button> 
+       </div>
+      </section> 
     </>
   );
 };
