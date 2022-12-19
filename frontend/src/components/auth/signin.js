@@ -14,13 +14,8 @@ import {
 	Input,
 	InputGroup,
 	InputRightElement,
-	Checkbox,
-	Stack,
-	Link,
 	Button,
 	Heading,
-	Text,
-	useColorModeValue,
 	VStack,
 	Wrap,
 	WrapItem,
@@ -69,6 +64,10 @@ function Signin() {
 				isClosable: true,
 			  })
       cookies.save("token", response.data.user.token)
+	  cookies.save("user", response.data.user.fullName)
+	  if (response){
+		window.location.href = window.location.origin + "/"
+	  }
     })
 		// cookies.save('token', res.data.token)
 	}
@@ -77,7 +76,8 @@ function Signin() {
 		  <VStack align={"center"} w="100%" zIndex={1}>
 			<Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
 			<Box
-			  top="20vh"
+			position={"absolute"}
+			  top="25vh"
 			  bg="gray.200"
 			  color="#0B0E3F"
 			  borderRadius="lg"
@@ -99,7 +99,7 @@ function Signin() {
 						
 						<FormControl id="formBasicEmail">
  								<FormLabel>Email address</FormLabel>
- 								<Input type="email" name='email' onChange={(e) => handleChange(e)} />
+ 								<Input autoComplete='false' type="email" name='email' onChange={(e) => handleChange(e)} />
  							</FormControl>
  							<FormControl id="formBasicPassword">
  								<FormLabel>Password</FormLabel>
@@ -128,7 +128,7 @@ function Signin() {
 							 }}
 							 onClick={Login}
 						   >
-							 Sign up
+							 Sign in
 						   </Button>
 						  </FormControl>
 						</VStack>

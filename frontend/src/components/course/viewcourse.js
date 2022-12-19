@@ -14,7 +14,10 @@ import {
   Stack,
   Text,
   Button,
+  VStack,
 } from "@chakra-ui/react";
+
+import { Grid, GridItem } from "@chakra-ui/react";
 
 // imports for modal
 import {
@@ -32,7 +35,6 @@ const initialStateData = {
   description: "",
   category: "",
   language: "",
-  Thumbnail: "",
 };
 export default function ViewCourse() {
   // Modal State
@@ -49,7 +51,6 @@ export default function ViewCourse() {
       description: data.description,
       category: data.category,
       language: data.language,
-      Thumbnail: data.Thumbnail,
     };
     const bearer = {
       headers: {
@@ -63,46 +64,64 @@ export default function ViewCourse() {
 
   return (
     <Flex>
-      {data.length >= 0 &&
-        data.map((val, idx) => (
-          <Flex key={idx}>
-            <Card maxW="sm" key={idx}>
-              <CardBody>
-                <Stack mt="6" spacing="3">
-                  <Heading fontSize="2xl">{val.Thumbnail}</Heading>
-                  <Text color="blue.600" fontSize="2xl">
-                    {val.fullName}
-                  </Text>
-                  <Text color="blue.600" fontSize="2xl">
-                    {val.category}
-                  </Text>
-                  <Text color="blue.600" fontSize="2xl">
-                    {val.language}
-                  </Text>
-                  <Text color="blue.600" fontSize="2xl">
-                    {val.description}
-                  </Text>
-                  <Button
-                    onClick={() => {
-                      setCourseID(val.id);
-                      setDisplayModal(true);
-                    }}
-                  >
-                    Add Course
-                  </Button>
-                </Stack>
-              </CardBody>
-              <Divider />
-              <CardFooter></CardFooter>
-            </Card>
-          </Flex>
-        ))}
-      {displayModal && (
-        <ViewCourseModal
-          setDisplayModal={setDisplayModal}
-          courseID={courseID}
-        />
-      )}
+      <VStack w="100%" align="center" p="20px">
+        <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+          {data.length >= 0 &&
+            data.map((val, idx) => (
+              <GridItem w="100%" key={idx}>
+                <Card maxW="sm" key={idx} bg="gray.50" h="400px">
+                  <CardBody h="300px">
+                    <Stack mt="6" spacing="3"sx={{"& span": {
+                        color: "black"
+                      }}}>
+                      <Text color="blue.600" fontSize="35px"sx={{"& span": {
+                        color: "black"
+                      }}}>
+                        <a href={window.location.origin + '/AddVedio'}><span>Course Name:</span>{val.fullName} </a>
+                      </Text>
+                      <Text color="blue.600" fontSize="21px"sx={{"& span": {
+                        color: "black"
+                      }}}>
+                        <span>Category: </span>{val.category}
+                      </Text>
+                      <Text color="blue.600" fontSize="21px"sx={{"& span": {
+                        color: "black"
+                      }}}>
+                        <span>Course Language: </span>{val.language}
+                      </Text>
+                      <Text color="blue.600" fontSize="21px" sx={{"& span": {
+                        color: "black"
+                      }}}>
+                        <span>Course Description:</span> {val.description}
+                      </Text>
+                    </Stack>
+                  </CardBody>
+                  <Divider />
+                  <CardFooter h={"75px"}>
+                    <Button
+                      onClick={() => {
+                        setCourseID(val.id);
+                        setDisplayModal(true);
+                      }}
+                      w="100%"
+                      textAlign={"center"}
+                      bg="gray.500"
+                      textColor={"white"}
+                    >
+                      Add video
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </GridItem>
+            ))}
+          {displayModal && (
+            <ViewCourseModal
+              setDisplayModal={setDisplayModal}
+              courseID={courseID}
+            />
+          )}
+        </Grid>
+      </VStack>
     </Flex>
   );
 }
@@ -132,25 +151,24 @@ const ViewCourseModal = ({ setDisplayModal, courseID }) => {
     formData.append("description", uploadVideoData.description);
     formData.append("viedo", uploadVideoData.viedo);
     formData.append("courseID", courseID);
-    console.log(formData)
-    console.log(uploadVideoData)
+    console.log(formData);
+    console.log(uploadVideoData);
 
     axios({
-        method: 'post',
-        url: `${process.env.REACT_APP_SERVER}/root/video/addvideo`,
-        data: {
-            fullName: uploadVideoData.fullName,
-            Thumbnail: uploadVideoData.Thumbnail,
-            description: uploadVideoData.description,
-            courseID: courseID,
-            video: uploadVideoData.video
-        },
-          headers: {
-            Authorization: `Bearer ${cookies.load("token")}`,
-            "Content-Type": "multipart/form-data",
-          },
-        },
-      )
+      method: "post",
+      url: `${process.env.REACT_APP_SERVER}/root/video/addvideo`,
+      data: {
+        fullName: uploadVideoData.fullName,
+        Thumbnail: uploadVideoData.Thumbnail,
+        description: uploadVideoData.description,
+        courseID: courseID,
+        video: uploadVideoData.video,
+      },
+      headers: {
+        Authorization: `Bearer ${cookies.load("token")}`,
+        "Content-Type": "multipart/form-data",
+      },
+    })
       .then((res) => {})
       .catch((err) => {});
   };

@@ -1,29 +1,47 @@
-import React from 'react';
-//  if you need Logout and login buttons in the header.
-// Should be build a authuntication page and Logout (POST METHOD)
+import React from "react";
+import brain from "../../assesst/Brain_.png";
+import CaptionCarousel from "./announ.js";
 import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    Icon,
-    Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-} from '@chakra-ui/react';
+  Box,
+  Button,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
-const Home = () => {
-    return (
-        <Flex width="100%">
-        </Flex>
-    );
-}
+export const Home = () => {
+  return (
+    <>
+      <Box>
+        <HStack alignContent={"center"}>
+          <Image src={brain} ml={900} />
 
-export default Home;
+          <VStack>
+            <HStack mt={50} ml={-2200}>
+              <Heading>
+                Start Your <br />
+                Future Education
+              </Heading>
+            </HStack>
+            <HStack>
+              <Text ml={-1240} mt={5}>
+                Education is a key to bright future. <br />
+                Education is a powerful weapon as <br />
+                it can transform our lives by enabling <br />
+                us to live our dreams.
+              </Text>
+            </HStack>
+            <HStack>
+              <Button ml={-1240} mt={15}>
+                Get Started
+              </Button>
+            </HStack>
+          </VStack>
+        </HStack>
+      </Box>
+      <CaptionCarousel />
+    </>
+  );
+};

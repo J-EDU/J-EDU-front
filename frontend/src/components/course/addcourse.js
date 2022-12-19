@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import cookies from "react-cookies";
+import Photo from "../../assesst/feedback.jpg";
 
 import {
   Flex,
@@ -75,8 +76,10 @@ function AddCourse() {
   return (
     <Flex w={"100%"}>
       <VStack align={"center"} w="100%" zIndex={1}>
+      <Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
+
         <Box
-          position={"absolute"}
+        position={"absolute"}
           top="20vh"
           bg="gray.200"
           color="#0B0E3F"
@@ -121,14 +124,7 @@ function AddCourse() {
                           onChange={(e) => handleChange(e)}
                         />
                       </FormControl>
-                      <FormControl id="thumbnail" isRequired>
-                        <FormLabel>Thumbnail</FormLabel>
-                        <Input
-                          type="text"
-                          name="thumbnail"
-                          onChange={(e) => handleChange(e)}
-                        />
-                      </FormControl>
+                      
 
                       <FormControl id="category" isRequired>
                         <FormLabel>Category</FormLabel>
@@ -157,7 +153,7 @@ function AddCourse() {
                           }}
                           onClick={addCourse}
                         >
-                          Sign up
+                          Add Course
                         </Button>
                       </FormControl>
                     </VStack>
