@@ -13,9 +13,10 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import logos from "../../assesst/jedu.PNG";
+ import logos from "../../assesst/logoo.png";
+
 const Logo = (props) => {
-  return <Image src={logos} w={"160px"} alt={"Imge Not Found"} />;
+  return <Image src={logos}  alt={"Imge Not Found"} mr={100} ml={-10} mt={-30} width={70} />;
 };
 
 const SocialButton = ({ children, label, href }) => {
@@ -64,32 +65,32 @@ export default function LargeWithNewsletter() {
             <Box>
               <Logo color={useColorModeValue("gray.700", "white")} />
             </Box>
-            <Text fontSize={"16px"} width={"100%"} textAlign="start">
+            <Text fontSize={"16px"} width={"105%"} textAlign="start" mt={-100}>
               This is an online learning platform provides different courses in
               a very convenient environment.
             </Text>
           </Stack>
           <Stack align={"flex-start"} w="100%">
             <Text fontSize="24px">Company</Text>
-            <Link fontSize={"18px"} href={"#"}>
+            <Link fontSize={"18px"} href={"/"}>
               Home
             </Link>
-            <Link fontSize={"18px"} href={"#"}>
-              About us
+            <Link fontSize={"18px"} href={"/about"}>
+              About 
             </Link>
-            <Link fontSize={"18px"} href={"#"}>
-              Contact us
+            <Link fontSize={"18px"} href={"/contact"}>
+              Contact
             </Link>
           </Stack>
           <Stack align={"flex-start"} w="100%">
             <Text fontSize="24px">Services</Text>
-            <Link fontSize={"18px"} href={"#"}>
+            <Link fontSize={"18px"} href={"/courses"}>
               Courses
             </Link>
             <Link fontSize={"18px"} href={"#"}>
               Profile
             </Link>
-            <Link fontSize={"18px"} href={"#"}>
+            <Link fontSize={"18px"} href={"/feed"}>
               Feedback
             </Link>
           </Stack>
@@ -99,7 +100,7 @@ export default function LargeWithNewsletter() {
               Amman-Jordan
             </Link>
             <Link fontSize={"18px"} href={"#"}>
-              info@example.com
+              jedu@gmail.com
             </Link>
             <Link fontSize={"18px"} href={"#"}>
               + 962 792 567 088
@@ -115,7 +116,7 @@ export default function LargeWithNewsletter() {
           <FaInstagram size={28} cursor={"pointer"}/>
         </Stack>
         <Text fontSize={"18px"} fontWeight={"bold"} sx={{"& span": {color:"black"}}}>
-        All rights reserved. Copyright <span>©{new Date().getFullYear()}</span>
+        All rights reserved. Copyright ©{new Date().getFullYear()}
         </Text>
       </VStack>
     </Box>
