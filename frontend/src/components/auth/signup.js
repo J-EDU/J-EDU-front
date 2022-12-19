@@ -73,6 +73,8 @@ function SignupCard() {
       console.log(addedUser.data);
     }
   }
+
+  
   return (
     <Flex w={"100%"}>
       <VStack align={"center"} w="100%" zIndex={1}>

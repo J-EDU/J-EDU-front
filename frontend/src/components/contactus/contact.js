@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
 
 import emailjs from "emailjs-com";
 
@@ -83,37 +84,35 @@ export const Contact = (props) => {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Contact Form</title>
+        <title>Contact Us</title>
         {/*link-stylesheet---------*/}
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         {/*using-fontAwesome----------*/}
         {/*contact-form-container-----------------*/}
         <section id="contact">
           {/*socail---------*/}
-          <div className="social">
-            {/*icons-------*/}
-            <a href="#"><i className="fab fa-facebook-f" /></a>
-            <a href="#"><i className="fab fa-twitter" /></a>
-            <a href="#"><i className="fab fa-instagram" /></a>
-            <a href="#"><i className="fab fa-dribbble" /></a>
-            <a href="#"><i className="fab fa-behance" /></a>
-          </div>
+         
           {/*contact-box-----------*/}
           <div className="contact-box">
             {/*heading--------*/}
             <div className="c-heading">
               <h1>Get In Touch</h1>
-              <p>Call Or Email Us Regarding Question Or Issues</p>
+              <p>Email Us Regarding Question Or Issues</p>
             </div>
             {/*inputs----------------*/}
             <div className="c-inputs">
               <form onSubmit={handleSubmit} action="#">
+                <label>Full Name</label>
                 <input type="text" placeholder="Full Name" onChange={handleChange} />	
+                <label>Email</label>
                 <input type="email" placeholder="Example@gmail.com" onChange={handleChange}/>
+                <label>Message</label>
                 <textarea name="message" placeholder="Write Message" defaultValue={""} onChange={handleChange}/>
                 {/*sumbit-btn---------*/}
                 <button>SEND</button>
+                <a href="#" className='a' target="_blank"><FaGithub /></a>
               </form>
+              
             </div>
           </div>
           {/*map-----------------*/}

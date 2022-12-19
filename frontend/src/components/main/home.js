@@ -1,5 +1,5 @@
 import React from "react";
-import brain from "../../assesst/Brain_.png";
+import brain from "../../assesst/home2.png";
 import CaptionCarousel from "./announ.js";
 import {
   Box,
@@ -16,7 +16,7 @@ export const Home = () => {
     <>
       <Box>
         <HStack alignContent={"center"}>
-          <Image src={brain} ml={900} />
+          <Image src={brain} ml={700} />
 
           <VStack>
             <HStack mt={50} ml={-2200}>
@@ -26,7 +26,7 @@ export const Home = () => {
               </Heading>
             </HStack>
             <HStack>
-              <Text ml={-1240} mt={5}>
+              <Text ml={-1270} mt={5}>
                 Education is a key to bright future. <br />
                 Education is a powerful weapon as <br />
                 it can transform our lives by enabling <br />
@@ -34,7 +34,7 @@ export const Home = () => {
               </Text>
             </HStack>
             <HStack>
-              <Button ml={-1240} mt={15}>
+              <Button ml={-1270} mt={15} colorScheme="purple" >
                 Get Started
               </Button>
             </HStack>

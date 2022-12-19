@@ -13,6 +13,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ViewVideo from './components/video/addvideo.js'
 import {Contact} from './components/contactus/contact.js'
 import AddedCourse from './components/course/addcourse.js'
+import Signin2 from "./components/auth/signin2.js";
+import Signup2 from "./components/auth/signup2.js";
+
 function App() {
   return (
     <Flex>
@@ -23,8 +26,8 @@ function App() {
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/about" element={<AboutTeam />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route> 
-            <Route exact path="/signin" element={<Signin />}></Route>
-            <Route exact path="/signup" element={<Signup />}></Route>
+            <Route exact path="/signin" element={<Signin2 />}></Route>
+            <Route exact path="/signup" element={<Signup2 />}></Route>
             <Route exact path="/feed" element={<Feed />}></Route>
             <Route exact path="/courses" element={<ViewCourse />}></Route>
             <Route exact path='/AddVedio' element={<ViewVideo />}></Route>

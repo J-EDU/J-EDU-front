@@ -20,6 +20,9 @@ a{
 	transform: translate(-50%,-50%);
 	display: flex;
 	align-items: center;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	margin-left: 20px;
 }
 .social{
 	display: flex;
@@ -34,49 +37,55 @@ a{
 	transition: all ease 0.3s;
 }
 .contact-box{
-	background-color:#434445;
+	background-color:#f3ebff;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 30px 30px;
 	box-shadow: 2px 0px 30px rgba(0,0,0,0.1);
+	width: 40vw;
 }
 .c-heading h1{
-	font-family: Roboto;
+	font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	color: #e7eef3;
 	font-size: 2.5rem;
 	font-weight: lighter;
 	margin: 0px;
 	padding: 0px;
+	color: #805ad5;
 }
 .c-heading p{
-	font-family: Roboto;
-	color:#cecece;
+	font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";	color:#cecece;
 	font-size: 0.8rem;
 	font-weight: lighter;
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
+	color: #805ad5;
 }
 .c-inputs{
-	margin: 15px 0px;
+	font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 20px;
+
+font-weight: 500;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	
 }
 .c-inputs input{
 	width:250px;
 	height: 45px;
 	background-color: transparent;
-	border: none;
-	border-bottom: 1px solid rgba(251,251,251,0.1);
+	border: 1px solid black;
+	border-bottom: 1px solid black;
 	outline: none;
 	margin: 10px 0px;
 	padding: 10px;
 	box-sizing: border-box;
-	color: #f4f4f4;
+	color: black;
 	display: flex;
 }
 .c-inputs textarea{
@@ -91,15 +100,18 @@ a{
 	box-sizing: border-box;
 }
 .c-inputs button{
-	width:200px;
+	width:150px;
 	height: 40px;
-	background-color: #FFFFFF;
+	
+	background-color:#805ad5;
 	border: none;
 	outline: none;
 	margin-top: 20px;
+	margin-left: 10px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
 	letter-spacing: 1px;
+	color: white;
 }
 .c-inputs input:focus{
 	border-bottom: 1px solid rgba(252,252,252,1.00);
