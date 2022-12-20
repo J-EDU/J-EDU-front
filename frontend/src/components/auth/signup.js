@@ -75,7 +75,7 @@ function Signup2() {
 
   
   return (
-    <HStack w="full" h="120vh" ml="40vh">
+    <HStack  h="120vh" ml="40vh">
     <Flex w="70vh" h="110vh" borderRightWidth={1}display={{base:'none', md:'flex'}}>
         <Image  objectFit="cover" w="full" h="full" src={img}/>
     </Flex>
