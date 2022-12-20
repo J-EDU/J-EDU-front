@@ -3,7 +3,7 @@ import cookies from "react-cookies";
 import axios from 'axios';
 import base64 from "base-64";
 import Photo from "../../assesst/backcolor.jpg";
-import img from '../../assesst/team.png'
+import img from '../../assesst/signin1.png'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
 	Flex,
@@ -79,14 +79,14 @@ export default function Signin2() {
 	return (
     <>
    <HStack h="100vh" ml="30vh">
-    <Flex w="80vh" h="60vh" borderRightWidth={1}display={{base:'none', md:'flex'}}>
+    <Flex w="80vh" h="60vh" borderRightWidth={1}display={{base:'none', md:'flex'}} bg={"#083AA9"}>
         <Image  objectFit="cover" w="full" h="full" src={img}/>
     </Flex>
 
     <Flex w="80vh" h="60vh" alignItems="center" justifyContent="cenetr" border='1px' borderColor='gray.200'>
-        <Stack w="full" maxW="md" spacing={4} p={6} >
+        <Stack w="full" maxW="md" spacing={4} p={6}  >
 
-            <Heading fontSize="2xl" color="purple.500">
+            <Heading fontSize="2xl" color="#083AA9">
                 Sign in to your account
             </Heading>
             <FormControl id="user">
@@ -116,7 +116,7 @@ export default function Signin2() {
                 <Link color="purble.500">Forgot password?</Link>
             </Stack> */}
 
-            <Button colorScheme="purple"  onClick={Login} loadingText="Submitting">Sign in</Button>
+            <Button  bg={"#083AA9"} color={"white"} onClick={Login} loadingText="Submitting">Sign in</Button>
         </Stack>
     </Flex>
    </HStack>
