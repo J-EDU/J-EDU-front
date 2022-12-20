@@ -84,6 +84,7 @@ function AddCourse() {
           bg="#805ad5"
           color="#0B0E3F"
           borderRadius="lg"
+          objectFit={"cover"}
           m={{ sm: 4, md: 16, lg: 10 }}
           p={{ sm: 5, md: 5, lg: 16 }}
 		

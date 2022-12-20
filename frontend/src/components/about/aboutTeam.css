@@ -29,10 +29,11 @@
   }
 
   .AboutUs_h12 {
+    margin-top: 25px;
     text-align: center;
     font-size: 35px;
     color:#805ad5;
-    ;
+    
   
     
   }
@@ -63,7 +64,6 @@
   .image{
     position:relative;
     margin-left: 10%;
-    /* float: left; */
     width:570px;
     height: 350px;
     margin-bottom: 20px;
@@ -143,14 +143,12 @@
   /* Style the counter cards */
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    /* this adds the "card" effect */
     padding: 14px;
     text-align: center;
   
     background-color:#f3ebff;
     border:solid;
     border-color:#805ad5;
-    /* border-radius: 30px; */
     color: #805ad5;
   
   

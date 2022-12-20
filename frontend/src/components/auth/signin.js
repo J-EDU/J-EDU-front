@@ -78,7 +78,7 @@ export default function Signin2() {
 	}
 	return (
     <>
-   <HStack w="full" h="100vh" ml="30vh">
+   <HStack h="100vh" ml="30vh">
     <Flex w="80vh" h="60vh" borderRightWidth={1}display={{base:'none', md:'flex'}}>
         <Image  objectFit="cover" w="full" h="full" src={img}/>
     </Flex>
