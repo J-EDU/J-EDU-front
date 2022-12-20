@@ -58,9 +58,11 @@ export default function CaptionCarousel() {
   return (
     <Box
       position={"relative"}
-      height={"600  px"}
-      width={"100%"}
+      height={"400px"}
+      width={"35%"}
+      marginLeft={"500px"}
       overflow={"hidden"}
+
     >
       {/* CSS files for react-slick */}
       <link
@@ -78,7 +80,7 @@ export default function CaptionCarousel() {
       <IconButton
         aria-label="left-arrow"
         variant="ghost"
-        position="absolute"
+        position="relative"
         left={side}
         top={top}
         transform={"translate(0%, -50%)"}
@@ -106,7 +108,7 @@ export default function CaptionCarousel() {
           cardsData.map((card, index) => (
             <Box
               key={index}
-              height={"xl"}
+              height={"100%"}
               position="relative"
               backgroundPosition="center"
               backgroundRepeat="no-repeat"
@@ -120,8 +122,9 @@ export default function CaptionCarousel() {
                   w={"full"}
                   maxW={"lg"}
                   position="absolute"
-                  top="50%"
-                  transform="translate(0, -50%)"
+                  top="25%"
+                  textAlign={"center"}
+                  // transform="translate(0, -50%)"
                 >
                   
                   <Text fontSize={{ base: "md", lg: "lg" }} color="black">

@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-import Photo from "../../assesst/backcolor.jpg";
-
 import {
   Flex,
   useToast,
@@ -27,6 +25,7 @@ import {
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import logo from "../../assesst/jedu.PNG";
+import img from "../../assesst/sign4.png"
 
 const initialStateData = {
   fullName: "",
@@ -36,7 +35,7 @@ const initialStateData = {
   password: "",
   confirmPassword: "",
 };
-function SignupCard() {
+function Signup2() {
   const toast = useToast();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -73,33 +72,22 @@ function SignupCard() {
       console.log(addedUser.data);
     }
   }
+
+  
   return (
-    <Flex w={"100%"}>
-      <VStack align={"center"} w="100%" zIndex={1}>
-        <Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
-        <Box
-        position={"absolute"}
-          top="20vh"
-          bg="gray.200"
-          color="#0B0E3F"
-          borderRadius="lg"
-          m={{ sm: 4, md: 16, lg: 10 }}
-          p={{ sm: 5, md: 5, lg: 16 }}
-        >
-          <Box p={4}>
-            <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-              <WrapItem>
-                <Box>
-                  <Heading>Sign up</Heading>
-                  
-                </Box>
-              </WrapItem>
-              <WrapItem>
-                <Box bg="white" borderRadius="lg">
-                  <Box m={8} color="#0B0E3F">
-                    <VStack spacing={5}>
-                    
-                         <FormControl isRequired>
+    <HStack w="full" h="120vh" ml="40vh">
+    <Flex w="70vh" h="110vh" borderRightWidth={1}display={{base:'none', md:'flex'}}>
+        <Image  objectFit="cover" w="full" h="full" src={img}/>
+    </Flex>
+
+    <Flex w="60vh" h="111vh" alignItems="center" justifyContent="cenetr" border='1px' borderColor='gray.200'>
+        <Stack w="full" maxW="md" spacing={4} p={6} >
+
+            <Heading fontSize="2xl" color="purple.500">
+                Join Us
+            </Heading>
+        
+            <FormControl isRequired>
                            <FormLabel>Full Name</FormLabel>
                            <Input
                              type="text"
@@ -177,28 +165,18 @@ function SignupCard() {
                      </FormControl>
                       
                       <FormControl id="name" float="right">
-                      <Button
-                         loadingText="Submitting"
-                         size="lg"
-                         bg={"blue.400"}
-                         color={"white"}
-                         _hover={{
-                           bg: "blue.500",
-                         }}
-                         onClick={signUp}
-                       >
-                         Sign up
-                       </Button>
+                      
                       </FormControl>
-                    </VStack>
-                  </Box>
-                </Box>
-              </WrapItem>
-            </Wrap>
-          </Box>
-        </Box>
-      </VStack>
+
+            {/* <Stack spacing={4} direction="row" align="start" justify="space-between">
+                <Checkbox colorScheme="purble"> Remeber me</Checkbox>
+                <Link color="purble.500">Forgot password?</Link>
+            </Stack> */}
+
+            <Button colorScheme="purple"  loadingText="Submitting"  onClick={signUp}>Sign Up</Button>
+        </Stack>
     </Flex>
+   </HStack>
   );
 }
-export default SignupCard;
+export default Signup2;

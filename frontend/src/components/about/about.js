@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IconContext } from 'react-icons';
+import aboutimage from '../../assesst/aboutimage.png';
 
 class AboutUs extends Component {
     render() {
@@ -13,12 +14,17 @@ class AboutUs extends Component {
             <div className='backcolor'>
                 <section className="">
 
-                    <article className="">
-                        <h1 className='AboutUs_h1'> ABOUT US </h1>
+                    
+                        <h1 className='AboutUs_h12'> ABOUT US </h1>
+                        <section>
                        <div className='AboutUs-div'>
                        <h5 className='AboutUs_h5'>We are J-EDU team,Our goal in the project is to provide an online learning platform to help students and give appropriate courses for all disciplines in order to develop skills and experience. </h5 >
                        </div>
-                    </article>
+                       <div>
+<img className='image' src={aboutimage} alt="image not found"/>
+                    </div>
+                       </section>
+                   
 
                     <IconContext.Provider value={{ color:"black" ,size :"1.8em"}} >
 

@@ -3,7 +3,7 @@ import cookies from "react-cookies";
 import axios from 'axios';
 import base64 from "base-64";
 import Photo from "../../assesst/backcolor.jpg";
-
+import img from '../../assesst/team.png'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
 	Flex,
@@ -20,6 +20,10 @@ import {
 	Wrap,
 	WrapItem,
 	Image,
+    Stack,
+    HStack,
+    Checkbox,
+    Link,
 } from '@chakra-ui/react';
 
 const initialStateData = {
@@ -28,7 +32,8 @@ const initialStateData = {
 
 }
 
-function Signin() {
+export default function Signin2() {
+
 	const toast = useToast();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -72,40 +77,29 @@ function Signin() {
 		// cookies.save('token', res.data.token)
 	}
 	return (
-		<Flex w={"100%"}>
-		  <VStack align={"center"} w="100%" zIndex={1}>
-			<Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
-			<Box
-			position={"absolute"}
-			  top="25vh"
-			  bg="gray.200"
-			  color="#0B0E3F"
-			  borderRadius="lg"
-			  m={{ sm: 4, md: 16, lg: 10 }}
-			  p={{ sm: 5, md: 5, lg: 16 }}
-			>
-			  <Box p={4}>
-				<Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
-				  <WrapItem>
-					<Box>
-					  <Heading>Sign in</Heading>
-					  
-					</Box>
-				  </WrapItem>
-				  <WrapItem>
-					<Box bg="white" borderRadius="lg">
-					  <Box m={8} color="#0B0E3F">
-						<VStack spacing={5}>
-						
-						<FormControl id="formBasicEmail">
- 								<FormLabel>Email address</FormLabel>
- 								<Input autoComplete='false' type="email" name='email' onChange={(e) => handleChange(e)} />
- 							</FormControl>
- 							<FormControl id="formBasicPassword">
- 								<FormLabel>Password</FormLabel>
- 								<InputGroup>
- 								<Input type={showPassword ? 'text' : 'password'} name='password' onChange={(e) => handleChange(e)} />
- 								<InputRightElement h={'full'}>
+    <>
+   <HStack w="full" h="100vh" ml="30vh">
+    <Flex w="80vh" h="60vh" borderRightWidth={1}display={{base:'none', md:'flex'}}>
+        <Image  objectFit="cover" w="full" h="full" src={img}/>
+    </Flex>
+
+    <Flex w="80vh" h="60vh" alignItems="center" justifyContent="cenetr" border='1px' borderColor='gray.200'>
+        <Stack w="full" maxW="md" spacing={4} p={6} >
+
+            <Heading fontSize="2xl" color="purple.500">
+                Sign in to your account
+            </Heading>
+            <FormControl id="user">
+                <FormLabel>Email</FormLabel>
+                <Input placeholder='Email' onChange={(e) => handleChange(e)} />
+            </FormControl>
+
+            <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+               
+                <InputGroup>
+ 								<Input type={showPassword ? 'text' : 'password'} name='password' onChange={(e) => handleChange(e)} placeholder='●●●●●'/>
+ 								<InputRightElement  h={'full'}>
  										<Button
  											variant={'ghost'}
  											onClick={() =>
@@ -115,104 +109,19 @@ function Signin() {
  										</Button>
  									</InputRightElement>
  									</InputGroup>
- 							</FormControl>
-						 			  
-						  <FormControl id="name" float="right">
-						  <Button
-							 loadingText="Submitting"
-							 size="lg"
-							 bg={"blue.400"}
-							 color={"white"}
-							 _hover={{
-							   bg: "blue.500",
-							 }}
-							 onClick={Login}
-						   >
-							 Sign in
-						   </Button>
-						  </FormControl>
-						</VStack>
-					  </Box>
-					</Box>
-				  </WrapItem>
-				</Wrap>
-			  </Box>
-			</Box>
-		  </VStack>
-		</Flex>
-	  );
-	}
-export default Signin;
-// 	return (
-// 		<form onSubmit={Login}>
-// 			<Flex
-// 				diection={"column"} w={"100%"} gap={"32px"} >
-// 				<VStack w="100%" p="20px">
-// 				<Box
-//           alignSelf="center"
-//           p={"64px 20px"}
-//           w={["100%", "80%"]}
-//           bg="gray.200"
-//           border={"1px solid"}
-//           borderColor="gray.100"
-//           borderRadius={"20px"}
-//           filter={"drop-shadow(0px 4px 10px rgba(213, 213, 230, 0.75)"}
-//           align="center"
-//         >
-// 					<Stack align={'center'}>
-// 						<Heading fontSize={'4xl'}>Sign in to your account</Heading>
-// 						<Text fontSize={'lg'} color={'gray.600'}>
-// 							to enjoy all of our cool features ✌️
-// 						</Text>
-// 					</Stack>
-// 					<Box
-// 						rounded={'lg'}
-// 						bg={useColorModeValue('white', 'gray.700')}
-// 						boxShadow={'lg'}
-// 						p={8}>
-// 						<Stack spacing={4}>
-// 							<FormControl id="formBasicEmail">
-// 								<FormLabel>Email address</FormLabel>
-// 								<Input type="email" name='email' onChange={(e) => handleChange(e)} />
-// 							</FormControl>
-// 							<FormControl id="formBasicPassword">
-// 								<FormLabel>Password</FormLabel>
-// 								<InputGroup>
-// 								<Input type={showPassword ? 'text' : 'password'} name='password' onChange={(e) => handleChange(e)} />
-// 								<InputRightElement h={'full'}>
-// 										<Button
-// 											variant={'ghost'}
-// 											onClick={() =>
-// 												setShowPassword((showPassword) => !showPassword)
-// 											}>
-// 											{showPassword ? <ViewIcon /> : <ViewOffIcon />}
-// 										</Button>
-// 									</InputRightElement>
-// 									</InputGroup>
-// 							</FormControl>
-// 							<Stack spacing={10}>
-// 								<Stack
-// 									direction={{ base: 'column', sm: 'row' }}
-// 									align={'start'}
-// 									justify={'space-between'}>
-// 									<Checkbox>Remember me</Checkbox>
-// 									<Link color={'blue.400'}>Forgot password?</Link>
-// 								</Stack>
-// 								<Button
-// 									bg={'blue.400'}
-// 									color={'white'}
-// 									_hover={{
-// 										bg: 'blue.500',
-// 									}} onClick={Login} >
-// 									Sign in
-// 								</Button>
-// 							</Stack>
-// 						</Stack>
-// 					</Box>
-// 					</Box>
-// 				</VStack>
-// 			</Flex>
-// 		</form>
-// 	);
-// }
-// export default Signin;
+            </FormControl>
+
+            {/* <Stack spacing={4} direction="row" align="start" justify="space-between">
+                <Checkbox colorScheme="purble"> Remeber me</Checkbox>
+                <Link color="purble.500">Forgot password?</Link>
+            </Stack> */}
+
+            <Button colorScheme="purple"  onClick={Login} loadingText="Submitting">Sign in</Button>
+        </Stack>
+    </Flex>
+   </HStack>
+
+</>
+
+
+    )}	
