@@ -3,7 +3,7 @@ import React from "react";
 
 import axios from "axios";
 import cookies from "react-cookies";
-import Photo from "../../assesst/feedback.jpg";
+import feedbackimage from "../../assesst/feedbackimage.png";
 import {
   useToast,
   Flex,
@@ -71,13 +71,13 @@ function Feedbackcard() {
     });
   }
   return (
-    <Flex w={"100%"}>
+    <Flex w={"100%"} >
+        
       <VStack align={"center"} w="100%" zIndex={1}>
-        <Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
+        {/* <Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} /> */}
         <Box
-        position={"absolute"}
           top="20vh"
-          bg="gray.200"
+          bg="#805ad5"
           color="#0B0E3F"
           borderRadius="lg"
           m={{ sm: 4, md: 16, lg: 10 }}
@@ -88,9 +88,11 @@ function Feedbackcard() {
               <WrapItem>
                 <Box>
                   <Heading>Feedback</Heading>
-                  <Text mt={{ sm: 3, md: 3, lg: 5 }} color="#0B0E3F">
-                    Fill up the form below to feedback
+                  <Text mt={{ sm: 3, md: 3, lg: 5 }} color="#f3ebff">
+                    Fill up the form below and till us <br/>about your experience in our website
                   </Text>
+                  <Image alt ="image not found" src ={feedbackimage} width={'300px'} h="40vh"/>
+                
                 </Box>
               </WrapItem>
               <WrapItem>
@@ -132,7 +134,7 @@ function Feedbackcard() {
                       <FormControl id="name" float="right">
                         <Button
                           variant="solid"
-                          bg="#0D74FF"
+                          bg="#805ad5"
                           color="white"
                           _hover={{}}
                           onClick={feedback}
@@ -148,6 +150,7 @@ function Feedbackcard() {
           </Box>
         </Box>
       </VStack>
+      
     </Flex>
   );
 }

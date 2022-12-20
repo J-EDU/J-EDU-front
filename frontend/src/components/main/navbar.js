@@ -101,11 +101,8 @@ export default function WithSubnavigation() {
                 fontSize={"sm"}
                 fontWeight={600}
                 color={"white"}
-                bg={"#4299e1"}
-                href={"/signup"}
-                _hover={{
-                  bg: "#247ac0",
-                }}
+                colorScheme="purple" 
+                href={"/signup"}        
               >
                 Sign Up
               </Button>
@@ -154,7 +151,7 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  // color: linkHoverColor,
                 }}
               >
                 {navItem.label}
@@ -192,13 +189,13 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("blue.50", "gray.900") }}
+      // _hover={{ bg: useColorModeValue("blue.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "blue.400" }}
+            // _groupHover={{ color: "blue.400" }}
             fontWeight={500}
           >
             {label}
@@ -214,7 +211,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"blue.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -253,7 +250,7 @@ const MobileNavItem = ({ label, children, href }) => {
       >
         <Text
           fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
+          // color={useColorModeValue("gray.600", "gray.200")}
         >
           {label}
         </Text>

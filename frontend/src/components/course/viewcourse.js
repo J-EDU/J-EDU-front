@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDisclosure } from "@chakra-ui/react";
+import { color, useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
 import cookies from "react-cookies";
 
@@ -69,14 +69,15 @@ export default function ViewCourse() {
           {data.length >= 0 &&
             data.map((val, idx) => (
               <GridItem w="100%" key={idx}>
-                <Card maxW="sm" key={idx} bg="gray.50" h="400px">
+                <Card maxW="lg" key={idx} bg="gray.50" h="600px">
                   <CardBody h="300px">
                     <Stack mt="6" spacing="3"sx={{"& span": {
                         color: "black"
                       }}}>
-                      <Text color="blue.600" fontSize="35px"sx={{"& span": {
+                      <Text color="blue.600" fontSize="25px"sx={{"& span": {
                         color: "black"
                       }}}>
+                        <img src="https://www.theopencollege.com/wp-content/uploads/2013/08/digital-marketing-course-458-x-305px.jpg" alt="image not found"/>
                         <a href={window.location.origin + '/AddVedio'}><span>Course Name:</span>{val.fullName} </a>
                       </Text>
                       <Text color="blue.600" fontSize="21px"sx={{"& span": {
@@ -103,10 +104,13 @@ export default function ViewCourse() {
                         setCourseID(val.id);
                         setDisplayModal(true);
                       }}
+                      _hover={{
+                        bg: "pink.600"}}
                       w="100%"
                       textAlign={"center"}
-                      bg="gray.500"
+                      bg={"#805ad5"}
                       textColor={"white"}
+
                     >
                       Add video
                     </Button>
@@ -174,10 +178,10 @@ const ViewCourseModal = ({ setDisplayModal, courseID }) => {
   };
 
   return (
-    <Modal isOpen={true}>
+    <Modal isOpen={true} >
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Add Video</ModalHeader>
+      <ModalContent bg='#f3ebff'>
+        <ModalHeader color={'#805ad5'}>Add Video</ModalHeader>
         <ModalBody>
           <Flex w="100%" gap="24px" direction={"column"}>
             <Flex w="100%" gap="8px" direction={"column"}>
@@ -217,8 +221,17 @@ const ViewCourseModal = ({ setDisplayModal, courseID }) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button onClick={handleSubmit}>Save</Button>
+          <Button 
+          color='white'
+           bg={"#805ad5"}
+           _hover={{
+            bg: "pink.600"}}
+          onClick={handleSubmit}>Save</Button>
           <Button
+          _hover={{
+            bg: "pink.600",
+            color:'white'
+          }}
             variant="ghost"
             onClick={() => {
               setDisplayModal(false);

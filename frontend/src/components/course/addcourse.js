@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import cookies from "react-cookies";
-import Photo from "../../assesst/feedback.jpg";
+import addcourse2 from "../../assesst/addcourse2.png";
 
 import {
   Flex,
@@ -75,28 +75,39 @@ function AddCourse() {
   }
   return (
     <Flex w={"100%"}>
-      <VStack align={"center"} w="100%" zIndex={1}>
-      <Image alt="Image Not Found" src={Photo} w={"100%"} h="100vh" zIndex={0} />
+      <VStack align={"center"} w="100%" zIndex={1} >
+      {/* <Image alt="Image Not Found"  w={"100%"} h="100vh" zIndex={0} /> */}
 
         <Box
-        position={"absolute"}
+        // position={"absolute"}
           top="20vh"
-          bg="gray.200"
+          bg="#805ad5"
           color="#0B0E3F"
           borderRadius="lg"
           m={{ sm: 4, md: 16, lg: 10 }}
           p={{ sm: 5, md: 5, lg: 16 }}
+		
         >
-          <Box p={4}>
+          <Box p={4} >
             <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
-                <Box>
-                  <Heading>Add Course</Heading>
+                <Box >
+                  <Stack mt='5'>
+                  <Heading color={"white"} >Add Course</Heading>
+                  </Stack>
+                  <Text fontSize='xl'>
+                    fill the information needed to add the course
+                  </Text>
+                  <Stack
+                  mt='30'
+                 >
+                  <Image alt ="image not found" src ={addcourse2} width={'450px'} h="45vh" m={{sm: 4}}/>
+                  </Stack>
                 </Box>
               </WrapItem>
               <WrapItem>
-                <Box bg="white" borderRadius="lg">
-                  <Box m={8} color="#0B0E3F">
+                <Box bg="white" borderRadius="lg" w={'400px'} >
+                  <Box m={8} color="#805ad5" >
                     <VStack spacing={5}>
                       <FormControl isRequired>
                         <FormLabel>Full Name</FormLabel>
@@ -104,6 +115,7 @@ function AddCourse() {
                           type="text"
                           name="fullName"
                           onChange={(e) => handleChange(e)}
+						 
                         />
                       </FormControl>
 
@@ -114,6 +126,7 @@ function AddCourse() {
                           name="description"
                           id="description"
                           onChange={(e) => handleChange(e)}
+						  
                         />
                       </FormControl>
                       <FormControl id="language" isRequired>
@@ -122,6 +135,7 @@ function AddCourse() {
                           type="text"
                           name="language"
                           onChange={(e) => handleChange(e)}
+						  color={"#805ad5"}
                         />
                       </FormControl>
                       
@@ -132,6 +146,7 @@ function AddCourse() {
                           type="text"
                           name="category"
                           onChange={(e) => handleChange(e)}
+						  color={"#805ad5"}
                         />
                       </FormControl>
                       <FormControl id="tag" isRequired>
@@ -140,16 +155,17 @@ function AddCourse() {
                           type="text"
                           name="tag"
                           onChange={(e) => handleChange(e)}
+						  color={"#805ad5"}
                         />
                       </FormControl>
                       <FormControl id="name" float="right">
                         <Button
                           loadingText="Submitting"
                           size="lg"
-                          bg={"blue.400"}
+                          bg={"#805ad5"}
                           color={"white"}
                           _hover={{
-                            bg: "blue.500",
+                            bg: "pink.600",
                           }}
                           onClick={addCourse}
                         >
@@ -167,4 +183,4 @@ function AddCourse() {
     </Flex>
   );
 }
-export default AddCourse;
+export default AddCourse; 
